@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+  <title>Contact Us [The Cheap Collegiate]</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/style.css" media="screen" />
+  <link rel="stylesheet" href="css/print.css" media="print" />
+</head>
+<body class="contact">
+
+<header>
+  <a class="block" href="index.html">
+    <img alt="store logo" src="images/logo.png" />
+    The Cheap Collegiate
+  </a>
+</header>
+
+<div id="main" class="block">
+
+  <div id="content">
+
+    <div id="banner">
+      <h1>Contact us</h1>
+      <div id="photos">
+        <img alt="a smiling female student of color rests her chin on a stack of textbooks" src="images/contact.jpg" />
+      </div>
+    </div>
+
+    <section>
+      <p>You may contact the store in person during normal business hours, via phone at <a href="tel:202-555-1212">202-555-1212</a>, or via email at <a href="mailto:store@thecheapcollegiate.com">store@thecheapcollegiate.com</a>.</p>
+      <p>You may also fill out the contact form below, and we will email or call you back within one business day.</p>
+      <form name="contact" id="contact" action="mailto:apiernock@student.umuc.edu" method="post" enctype="text/plain">
+        <fieldset>
+          <legend>Your information</legend>
+          <p><label for="nameFirst">First name:</label> <input type="text" id="nameFirst" name="nameFirst" /></p>
+          <p><label for="nameLast">Last name:</label> <input type="text" id="nameLast" name="nameLast" /></p>
+          <p><label for="email">Email address:</label> <input type="email" id="email" name="email" /></p>
+          <p><label for="phone">Phone number:</label> <input type="tel" id="phone" name="phone" /></p>
+          <ul id="newsOptions">
+            <li><input type="radio" name="newsletter" id="newsYes" value="newsYes" /> <label for="newsYes">Yes, please subscribe me to your monthly email newsletter.</label></li>
+            <li><input type="radio" name="newsletter" id="newsNo" value="newsNo" /> <label for="newsNo">No, I do not wish to subscribe to the newsletter.</label></li>
+          </ul>
+        </fieldset>
+        <fieldset>
+          <legend>Your comments</legend>
+          <p><label for="comments">Please enter your question, suggestion, or comments below.</label></p>
+          <p><textarea id="comments" name="comments"></textarea></p>
+        </fieldset>
+        <p class="buttons"><input type="submit" name="submit" id="submit" value="Submit" /> <input type="reset" name="reset" id="reset" value="Reset" /></p>
+      </form>
+    </section>
+
+  </div>
+
+  <div id="sidebar">
+
+    <nav>
+      <h2>Site navigation</h2>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="location.html">Store location</a></li>
+        <li><a href="events.html">Store events</a></li>
+        <li><a href="picks.html">Staff picks</a></li>
+        <li><a href="about.html">About the store</a></li>
+        <li class="active"><a href="contact.html">Contact us</a></li>
+      </ul>
+    </nav>
+
+    <aside id="information">
+      <h2>Store information</h2>
+      <img alt="a photograph the front of the store" src="images/storefront.jpg" />
+      <div itemscope itemtype="http://schema.org/LocalBusiness">
+        <p itemprop="name"><strong>The Cheap Collegiate</strong></p>
+        <p itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+          <span itemprop="streetAddress">123 Main Street,</span>
+          <span itemprop="addressLocality">Anytown</span>
+          <span itemprop="addressRegion">XZ</span>
+          <span itemprop="postalCode">98765</span>
+        </p>
+        <p itemprop="telephone">Phone: (202) 555.1212</p>
+        <ul>
+          <li>Monday closed</li>
+          <li>Tue - Thu 10am-7pm</li>
+          <li>Friday 10am-9pm</li>
+          <li>Saturday 12pm-10pm</li>
+          <li>Sunday 12pm-7pm</li>
+        </ul>
+      </div>
+    </aside>
+
+  </div>
+
+</div>
+
+<footer><div class="block">
+  <p>Reed Eckert Piernock<br />
+    University of Maryland, University College<br />
+    Fundamentals of JavaScript<br />
+    CMST 388.7980</p>
+  <p class="references"><a href="references.html">References and citations</a></p>
+  <p class="valid"><a href="https://validator.w3.org/check/referer">Valid HTML5</a> and <a href="http://jigsaw.w3.org/css-validator/check/referer">Valid CSS</a></p>
+</div></footer>
+
+<script src="scripts/script.js"></script>
+</body>
+</html>

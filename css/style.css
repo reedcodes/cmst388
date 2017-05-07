@@ -1,0 +1,425 @@
+/*! requirements */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/*! basic general layout */
+* {
+  /*! set widths to include padding */
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.block {
+  /*! keep content width readable */
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 15px;
+}
+@media (min-width: 1241px) {
+  .block {
+    padding: 0;
+  }
+}
+
+section, aside {
+  padding: 15px 0;
+}
+
+/*! font & text styles */
+body {
+  background: white;
+  color: black;
+  font: 16px/1.25 Tahoma, Helvetica, Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: midnightblue;
+  font-family: 'Bitter', serif;
+}
+
+h1 {
+  font-size: 2.125em;
+}
+
+h2 {
+  font-size: 1.875em;
+}
+
+p, ul, ol {
+  margin: 1em 0;
+}
+
+strong, b {
+  font-weight: bold;
+}
+
+em, i {
+  font-style: italic;
+}
+
+/*! image styles */
+img {
+  max-width: 100%;
+}
+
+/*! responsive iframe */
+.iframe {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  height: 0;
+  margin: 1em auto;
+}
+.iframe.ratio43 {
+  padding-top: 75%;
+}
+.iframe.ratio169 {
+  padding-top: 56.25%;
+}
+.iframe.spotify {
+  padding-top: 150%;
+}
+
+iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/*! Tables */
+table, th, td {
+  border: 1px solid #bfbfff;
+}
+
+table {
+  width: auto;
+  margin: 1em 0;
+}
+
+th, td {
+  padding: 0.25em 0.5em;
+}
+
+th {
+  background: #bfbfff;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+}
+
+caption {
+  padding: 0.5em 1em;
+  background: midnightblue;
+  color: gold;
+  font-weight: bold;
+  text-align: center;
+}
+
+.compare td {
+  font-size: 4em;
+}
+
+/*! Header */
+header {
+  margin-bottom: 15px;
+  background: url(../images/header.jpg) right center no-repeat;
+  background-size: cover;
+}
+header a {
+  display: block;
+  color: gold;
+  font: 1.75em/1.25 'Bitter', serif;
+  text-decoration: none;
+  text-shadow: 2px 2px 0 midnightblue, -1px -1px 0 midnightblue, 1px -1px 0 midnightblue, -1px 1px 0 midnightblue, 1px 1px 0 midnightblue;
+}
+@media (min-width: 769px) {
+  header a {
+    font-size: 2.5em;
+  }
+}
+@media (min-width: 1025px) {
+  header a {
+    font-size: 3em;
+  }
+}
+header a.block {
+  padding: 15px;
+}
+header img {
+  max-height: 2em;
+  margin-bottom: 0.2em;
+  vertical-align: text-bottom;
+}
+
+/*! Main body */
+#main {
+  overflow: hidden;
+  width: 100%;
+}
+
+/*! Content */
+@media (min-width: 769px) {
+  #content {
+    float: right;
+    width: 80%;
+    padding-left: 15px;
+  }
+}
+@media (min-width: 1025px) {
+  .asides #content section {
+    float: left;
+    width: 75%;
+    padding-right: 15px;
+  }
+}
+@media (min-width: 769px) {
+  .asides #content aside {
+    float: left;
+    width: 50%;
+  }
+  .asides #content aside:nth-of-type(odd) {
+    padding-right: 15px;
+  }
+  .asides #content aside:nth-of-type(even) {
+    padding-left: 15px;
+  }
+}
+@media (min-width: 1025px) {
+  .asides #content aside {
+    float: right;
+    clear: right;
+    width: 25%;
+    padding-left: 15px;
+  }
+}
+
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+}
+.boxes li {
+  flex-grow: 0;
+  flex-shrink: 1;
+  margin-bottom: 1em;
+  border: 1px solid midnightblue;
+}
+@media (min-width: 1025px) {
+  .boxes li {
+    width: 48%;
+  }
+  .boxes li:nth-of-type(odd) {
+    margin-right: 1%;
+  }
+  .boxes li:nth-of-type(even) {
+    margin-left: 1%;
+  }
+  .boxes li:last-child:nth-of-type(odd) {
+    margin-right: 0;
+  }
+}
+@media (min-width: 1241px) {
+  .boxes li {
+    width: 29%;
+  }
+  .boxes li:nth-of-type(3n+1) {
+    margin-left: 0;
+    margin-right: 1%;
+  }
+  .boxes li:nth-of-type(3n+2) {
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+  .boxes li:nth-of-type(3n) {
+    margin-left: 1%;
+    margin-right: 0;
+  }
+}
+.boxes li > i, .boxes li > b, .boxes li > span, .boxes li > p {
+  display: block;
+  margin: 0;
+  padding: 0.25em 0.5em;
+}
+.boxes li > i, .boxes li > b {
+  background: midnightblue;
+  color: gold;
+}
+.boxes li > span {
+  font-weight: bold;
+}
+.boxes li > img {
+  float: left;
+  width: 25%;
+  margin: 0.25em 0.5em;
+  border: 1px solid midnightblue;
+}
+
+.citations li {
+  margin: 0 0 1em 2.5em;
+  text-indent: -2.5em;
+}
+
+/*! Forms */
+form {
+  width: 100%;
+  overflow: hidden;
+}
+form * {
+  font-size: 1em;
+}
+
+@media (min-width: 1025px) {
+  fieldset {
+    width: 49%;
+    float: left;
+  }
+  fieldset:nth-of-type(odd) {
+    margin-right: 1%;
+  }
+  fieldset:nth-of-type(even) {
+    margin-left: 1%;
+  }
+}
+
+legend {
+  color: midnightblue;
+  font-weight: bold;
+  font-size: 1.5em;
+  font-family: 'Bitter', serif;
+}
+
+label, input {
+  vertical-align: text-bottom;
+}
+
+input {
+  max-width: 100%;
+}
+input[type="text"], input[type="email"], input[type="tel"] {
+  border: 1px solid #bfbfff;
+}
+input[type="submit"], input[type="reset"] {
+  padding: 0.25em 0.5em;
+  border: none;
+  background: midnightblue;
+  color: gold;
+  font-weight: bold;
+}
+
+textarea {
+  width: 100%;
+  max-width: 100%;
+  height: 7.5em;
+  border: 1px solid #bfbfff;
+}
+
+.buttons {
+  clear: both;
+}
+
+/*! Sidebar */
+@media (min-width: 769px) {
+  #sidebar {
+    float: left;
+    width: 20%;
+    padding-right: 15px;
+  }
+}
+
+/*! Navigation */
+nav a {
+  display: block;
+  margin-right: 1em;
+  padding: 0.25em 0.5em;
+  border: 1px solid midnightblue;
+  border-width: 1px 1px 0 5px;
+  background: gold;
+  color: midnightblue;
+  font-weight: bold;
+  text-decoration: none;
+}
+nav a:hover {
+  background: #ffffb3;
+}
+nav li:last-child a {
+  border-bottom-width: 1px;
+}
+nav li.active a {
+  margin-right: 0;
+  border-radius: 0 2em 2em 0;
+  background: midnightblue;
+  color: white;
+}
+nav li.active + li a {
+  border-top: none;
+}
+
+/*! Footer */
+footer {
+  border-top: 2px solid midnightblue;
+}
+footer p {
+  float: left;
+}
+footer .references {
+  float: right;
+}
+footer .valid {
+  clear: right;
+  float: right;
+}

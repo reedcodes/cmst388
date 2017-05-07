@@ -1,0 +1,20 @@
+body {
+  background: white;
+  color: black;
+  font-size: 12pt;
+  font-family: 'Times New Roman', serif;
+}
+
+header img,
+aside,
+#sidebar,
+iframe
+{ display: none; }
+
+footer {
+  margin-top: 1em;
+  padding-top: 1em;
+  border-top: 1pt solid black;
+}
+
+#photos img { max-width: 50%; }

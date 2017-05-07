@@ -1,0 +1,345 @@
+/*! requirements */
+
+@import "compass/reset";
+@import "compass/css3";
+@import "breakpoint";
+
+
+
+// Variables
+
+  // colors
+$white: rgb(255,255,255);
+$black: rgb(0,0,0);
+
+$blue: rgb(25,25,112);
+$blueLight: rgb(191,191,255);
+$blueDark: rgb(0,0,61);
+
+$gold: rgb(255,215,0);
+$goldLight: rgb(255,255,179);
+$goldDark: rgb(179,139,00);
+
+  // media queries for breakpoint
+$scrMed: 769px;
+$scrLarge: 1025px;
+$scrHuge: 1241px;
+
+
+
+/*! basic general layout */
+* {
+  /*! set widths to include padding */
+  @include box-sizing(border-box);
+}
+.block {
+  /*! keep content width readable */
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 15px;
+  @include breakpoint($scrHuge) { padding: 0; }
+}
+
+section, aside { padding: 15px 0; }
+
+
+
+/*! font & text styles */
+
+body {
+  background: rgb(255,255,255);
+  color: rgb(0,0,0);
+  font: 16px/1.25 Tahoma, Helvetica, Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $blue;
+  font-family: 'Bitter', serif;
+}
+h1 { font-size: 2.125em; }
+h2 { font-size: 1.875em; }
+
+p, ul, ol {
+  margin: 1em 0;
+}
+
+strong, b { font-weight: bold; }
+em, i { font-style: italic; }
+
+/*! image styles */
+
+img {
+  max-width: 100%;
+}
+
+/*! responsive iframe */
+
+.iframe {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  height: 0;
+  margin: 1em auto;
+  &.ratio43 { padding-top: 75%; }
+  &.ratio169 { padding-top: 56.25%; }
+  &.spotify { padding-top: 150%; }
+}
+iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/*! Tables */
+
+table, th, td {
+  border: 1px solid $blueLight;
+}
+table {
+  width: auto;
+  margin: 1em 0;
+}
+th, td {
+  padding: 0.25em 0.5em;
+}
+th {
+  background: $blueLight;
+  color: $black;
+  font-weight: bold;
+  text-align: center;
+}
+caption {
+  padding: 0.5em 1em;
+  background: $blue;
+  color: $gold;
+  font-weight: bold;
+  text-align: center;
+}
+
+.compare {
+  td {
+    font-size: 4em;
+  }
+}
+
+
+/*! Header */
+
+header {
+  margin-bottom: 15px;
+  background: url(../images/header.jpg) right center no-repeat;
+  background-size: cover;
+  a {
+    display: block;
+    color: $gold;
+    font: 1.75em/1.25 'Bitter', serif;
+    text-decoration: none;
+    text-shadow:
+      2px 2px 0 $blue,
+      -1px -1px 0 $blue,
+      1px -1px 0 $blue,
+      -1px 1px 0 $blue,
+      1px 1px 0 $blue;
+    @include breakpoint($scrMed) { font-size: 2.5em; }
+    @include breakpoint($scrLarge) { font-size: 3em; }
+    &.block { padding: 15px; }
+  }
+  img {
+    max-height: 2em;
+    margin-bottom: 0.2em;
+    vertical-align: text-bottom;
+  }
+}
+
+/*! Main body */
+
+#main {
+  overflow: hidden;
+  width: 100%;
+}
+
+/*! Content */
+
+#content {
+  @include breakpoint($scrMed) {
+    float: right;
+    width: 80%;
+    padding-left: 15px;
+  }
+  .asides & {
+    section {
+      @include breakpoint($scrLarge) {
+        float: left;
+        width: 75%;
+        padding-right: 15px;
+      }
+    }
+    aside {
+      @include breakpoint($scrMed) {
+        float: left;
+        width: 50%;
+        &:nth-of-type(odd) { padding-right: 15px; }
+        &:nth-of-type(even) { padding-left: 15px; }
+      }
+      @include breakpoint($scrLarge) {
+        float: right;
+        clear: right;
+        width: 25%;
+        padding-left: 15px;
+      }
+    }
+  }
+}
+
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  li {
+    flex-grow: 0;
+    flex-shrink: 1;
+    margin-bottom: 1em;
+    border: 1px solid $blue;
+    @include breakpoint($scrLarge) {
+      width: 48%;
+      &:nth-of-type(odd) { margin-right: 1%; }
+      &:nth-of-type(even) { margin-left: 1%; }
+      &:last-child:nth-of-type(odd) { margin-right: 0; }
+    }
+    @include breakpoint($scrHuge) {
+      width: 29%;
+      &:nth-of-type(3n+1) { margin-left: 0; margin-right: 1%; }
+      &:nth-of-type(3n+2) { margin-left: 1%; margin-right: 1%; }
+      &:nth-of-type(3n) { margin-left: 1%; margin-right: 0; }
+    }
+    > i, > b, > span, > p {
+      display: block;
+      margin: 0;
+      padding: 0.25em 0.5em;
+    }
+    > i, > b {
+      background: $blue;
+      color: $gold;
+    }
+    > span {
+      font-weight: bold;
+    }
+    > img {
+      float: left;
+      width: 25%;
+      margin: 0.25em 0.5em;
+      border: 1px solid $blue;
+    }
+  }
+}
+
+.citations {
+  li {
+    margin: 0 0 1em 2.5em;
+    text-indent: -2.5em;
+  }
+}
+
+/*! Forms */
+
+form {
+  width: 100%;
+  overflow: hidden;
+  * { font-size: 1em; }
+}
+
+fieldset {
+  @include breakpoint($scrLarge) {
+    width: 49%;
+    float: left;
+    &:nth-of-type(odd) { margin-right: 1%; }
+    &:nth-of-type(even) { margin-left: 1%; }
+  }
+}
+
+legend {
+  color: $blue;
+  font-weight: bold;
+  font-size: 1.5em;
+  font-family: 'Bitter', serif;
+}
+
+label, input { vertical-align: text-bottom; }
+
+input {
+  max-width: 100%;
+  &[type="text"],
+  &[type="email"],
+  &[type="tel"] {
+    border: 1px solid $blueLight;
+  }
+  &[type="submit"],
+  &[type="reset"] {
+    padding: 0.25em 0.5em;
+    border: none;
+    background: $blue;
+    color: $gold;
+    font-weight: bold;
+  }
+}
+
+textarea {
+  width: 100%;
+  max-width: 100%;
+  height: 7.5em;
+  border: 1px solid $blueLight;
+}
+
+.buttons { clear: both; }
+
+/*! Sidebar */
+
+#sidebar {
+  @include breakpoint($scrMed) {
+    float: left;
+    width: 20%;
+    padding-right: 15px;
+  }
+}
+
+/*! Navigation */
+
+nav {
+  a {
+    display: block;
+    margin-right: 1em;
+    padding: 0.25em 0.5em;
+    border: 1px solid $blue;
+    border-width: 1px 1px 0 5px;
+    background: $gold;
+    color: $blue;
+    font-weight: bold;
+    text-decoration: none;
+    &:hover {
+      background: $goldLight;
+    }
+  }
+  li:last-child a { border-bottom-width: 1px; }
+  li.active {
+    a {
+      margin-right: 0;
+      border-radius: 0 2em 2em 0;
+      background: $blue;
+      color: $white;
+    }
+    + li a {
+      border-top: none;
+    }
+  }
+}
+
+
+/*! Footer */
+
+footer {
+  border-top: 2px solid $blue;
+  p { float: left; }
+  .references { float: right; }
+  .valid { clear: right; float: right; }
+}
